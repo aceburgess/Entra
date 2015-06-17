@@ -11,6 +11,9 @@ $(document).on('ready page:load', function(){
     this.select();
   })
 
+  cancelForm('#add-key');
+  cancelForm('#add-place');
+
 })
 
 var addForm = function(selector, url, method, data) {
@@ -44,6 +47,8 @@ var addForm = function(selector, url, method, data) {
     });
   });
 }
+
+var cancelForm = function()
 
 
 var dropDownFooter =
