@@ -106,7 +106,7 @@ div textarea#message {
 
 #form-border {
   padding-top: 10px;
-  border-bottom: 1px solid black ;
+  border-bottom: 1px solid #cccccc;
 }
 
 #no-places {

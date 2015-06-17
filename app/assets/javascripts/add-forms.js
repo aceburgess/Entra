@@ -67,5 +67,5 @@ var dropDownFooter =
   "<div class='container-fluid cancel-container col-md-12'>"+
   "<br><a href='/' class='pull-left' id='cancel-form'><i class='fa fa-trash-o'></i> Delete Key </a>"+
   "<a href='/im_done' class='pull-right' id='close-and-save'><i class='fa fa-check'></i> I'm done</p></a>" +
-  "<br><hr>" +
+  "<br>" +
   "</div>";

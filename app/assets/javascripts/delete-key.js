@@ -7,7 +7,7 @@ $(document).on('ready page:load', function(){
 
   $('#form-drop-down').on('click', '#cancel-form', function(event){
     event.preventDefault();
-    $('#form-drop-down').html('<hr>');
+    $('#form-drop-down').html('');
     $('#add-key').show();
     clearInterval(refreshTime);
   });
