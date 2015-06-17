@@ -11,44 +11,56 @@ $(document).on('ready page:load', function(){
     this.select();
   })
 
-  cancelForm('#add-key');
-  cancelForm('#add-place');
+  // cancelForm('#add-key');
+  // cancelForm('#add-place');
 
 })
 
 var addForm = function(selector, url, method, data) {
   $(selector).on('click', function(event){
-    //     $(window).animate({
-    //     scrollTop: $(".col-md-12 text-center").offset().top
-    // }, 2000);
-    // $(window).scrollTop(".col-md-12 text-center");
-    $.ajax({
-      method: method,
-      url: url,
-    })
-    .done(function ( response ) {
-      if (selector == '#add-place') {
-        dropDownFooter = "<br><hr>"
-      }
-      response = response + dropDownFooter;
-      $('#form-drop-down').html(response).hide();
-      $('#form-drop-down').slideToggle( "slow" )
-      if (selector == '#add-key') {
-        $('#add-key').hide();
-        $('#form-drop-down').find('#cancel-form').addClass('delete-key')
-        $("#form-drop-down").find(".secret-url").select();
-      }
-    })
-    .fail(function(jqXHR,textStatus){
-      /* code ... */
-    })
-    .always(function(jqXHR,textStatus){
-      /* code ... */
-    });
+    if (($('#form-drop-down').html().length) > 4 ){
+      cancelForm(selector);
+    }
+    else{
+
+      //     $(window).animate({
+      //     scrollTop: $(".col-md-12 text-center").offset().top
+      // }, 2000);
+      // $(window).scrollTop(".col-md-12 text-center");
+      $.ajax({
+        method: method,
+        url: url,
+      })
+      .done(function ( response ) {
+        if (selector == '#add-place') {
+          dropDownFooter = "<br>"
+        }
+        response = response + dropDownFooter;
+        $('#form-drop-down').html(response).hide();
+        $('#form-drop-down').slideToggle( "slow" )
+        if (selector == '#add-key') {
+          $('#add-key').hide();
+          $('#form-drop-down').find('#cancel-form').addClass('delete-key')
+          $("#form-drop-down").find(".secret-url").select();
+        }
+      })
+      .fail(function(jqXHR,textStatus){
+        /* code ... */
+      })
+      .always(function(jqXHR,textStatus){
+        /* code ... */
+      });
+    }
   });
 }
 
-var cancelForm = function()
+var cancelForm = function(selector){
+  $('#form-drop-down').slideToggle( "slow", function(){
+    $('#form-drop-down').html('');
+    $('#form-drop-down').show();
+  } )
+  // $('#form-drop-down').show();
+}
 
 
 var dropDownFooter =

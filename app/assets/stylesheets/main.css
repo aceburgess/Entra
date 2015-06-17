@@ -101,7 +101,16 @@ div textarea#message {
 }
 
 #form-drop-down {
-  padding-top: 20px;
+
+}
+
+#form-border {
+  padding-top: 10px;
+  border-bottom: 1px solid black ;
+}
+
+#no-places {
+  padding-top: 10px;
 }
 
 .cancel-container {
