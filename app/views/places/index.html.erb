@@ -1,2 +1,7 @@
 <h1>Your places</h1>
-<%= render @places %>
+<div id="form-drop-down" class="col-md-12 text-center"></div><div id="form-border" class="col-md-12 text-center"></div>
+<% if @places.count > 0 %>
+  <%= render @places %>
+<% else %>
+  <h4 id="no-places" class="col-md-12 text-center">You have no places yet.  Please click the '<i id="add-place" class="fa fa-plus"></i>' button above to add one.</h4>
+<% end %>
