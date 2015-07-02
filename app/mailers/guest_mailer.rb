@@ -15,4 +15,11 @@ class GuestMailer < ApplicationMailer
     mail(to: current_user.email, subject: "Notification from #{@key.guest.name}")
   end
 
+  def guest_entered(key)
+    @key = key
+    @admin = @key.place.admin
+    @guest = @key.guest
+    mail(to: @admin.email, subject: "#{@guest.name} entered #{@key.place.nickname}")
+  end
+
 end

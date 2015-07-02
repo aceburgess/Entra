@@ -75,6 +75,7 @@ class KeysController < ApplicationController
     @key.used_at = Time.now if (params[:status] == 'opened')
     @key.requested = false if @key.unlimited_access
     if (params[:status] == 'closed')
+      GuestMailer.guest_entered(@key)
       activity.guest_access(@key)
     else
       activity.destroy

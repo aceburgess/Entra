@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @admin.first_name %></h1>
+    <p>A user by the name of <%= @guest.name %> just entered <%= @key.place.nickname %></p>
+    <p>Email for <%= @guest.name %> is <%= mail_to @guest.email %>.</p>
+    <p>Time of entry: <%= @key.used_at %> </p>
+  </body>
+</html>
