@@ -103,7 +103,10 @@ class KeysController < ApplicationController
   end
 
   def send_email
-    key = Key.find_by(secret_url: params[:sc_url])
+    @key = Key.find_by(secret_url: params[:sc_url])
+    @guest = Guest.where(email: params[:email], user_id:current_user.id, phone:'none', name:params[:email]).first_or_create
+    @key.guest = @guest
+    @key.save
     GuestMailer.buzzer_email(base_url,key,current_user,params[:email]).deliver_now
     render json: {email:'sent'}
   end
