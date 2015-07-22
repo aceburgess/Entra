@@ -3,19 +3,7 @@ class KeysController < ApplicationController
   before_action :require_login, only: [:show, :new, :edit, :destroy]
 
   def show
-
   end
-
-  # def new
-  #   @key = Key.new
-  #   respond_to do |format|
-  #     if request.xhr?
-  #       format.html { render :new, layout: false}
-  #     else
-  #       format.html { render :new }
-  #     end
-  #   end
-  # end
 
   def create
     @key = Key.new
@@ -33,15 +21,6 @@ class KeysController < ApplicationController
         end
       end
     end
-    # new_key = Key.new(get_params)
-    # if new_key.save
-    #   send_mail new_key
-    #   flash[:success] = "New key created"
-    #   redirect_to place_path(new_key.place)
-    # else
-    #   flash[:error] = "Key could not be created :("
-    #   redirect_to user_path(current_user)
-    # end
   end
 
   def edit
